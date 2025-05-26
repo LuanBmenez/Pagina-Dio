@@ -1,27 +1,36 @@
-📚 Clone da Página da DIO
-Este projeto é uma cópia do site da Digital Innovation One (DIO) desenvolvida por mim como exercício para dar meus primeiros passos em React.
+# 🚀 Clone da Página da DIO
 
-✅ O que foi feito:
+Este projeto é um **clone do site da Digital Innovation One (DIO)** desenvolvido por mim como exercício para dar meus **primeiros passos em React**.
 
-Interface moderna recriada usando React e Styled-Components
+![DIO Banner](./src/assets/banner.png)
 
-Uso de componentes reutilizáveis (como Button e Input)
+---
 
-Estruturação de rotas usando React Router
+## 🛠️ Tecnologias Utilizadas
 
-Ícones integrados com react-icons
+- **React**
+- **React Router**
+- **Styled-Components**
+- **React-Icons**
+- **JavaScript (ES6+)**
 
-Layout inspirado no site oficial da DIO para treinar estilização e responsividade
+---
 
-🚀 Objetivo do projeto:
-Praticar conceitos básicos de React, incluindo:
+## 🎯 Objetivos
 
-Componentização
+✅ Praticar os conceitos básicos de React:  
+- Componentização  
+- Passagem de props  
+- Criação de formulários  
+- Estilização com Styled-Components  
+- Implementação de ícones com React-Icons  
+- Estruturação e organização de um projeto em React  
 
-Props e estados
+---
 
-Estilização com Styled-Components
 
-Gerenciamento básico de rotas
+## 🔧 Como Rodar Localmente
 
-Organização de pastas e componentes
+1️⃣ Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
