@@ -1,40 +1,51 @@
-import React from 'react'
-import logo from "../../assets/logo-dio.png"
-import { Button } from '../Button'
-
+import React from "react";
+import logo from "../../assets/logo-dio.png";
+import { Button } from "../Button";
 
 import {
-    BuscarInputContainer,
-    Container,
-    Row,
-    Column,
-    Input,
-    Menu,
-    MenuRight,
-    Wrapper
+  BuscarInputContainer,
+  Container,
+  Row,
+  Column,
+  Input,
+  Menu,
+  MenuRight,
+  Wrapper,
+  UserPicture,
+} from "./styles";
 
-} from './styles'
-
-const Header = () => {
+const Header = ({ autenticado }) => {
   return (
     <Wrapper>
-        <Container>
-            <Row>
-                <img src ={logo} alt="Logo da dio"/>
-                <BuscarInputContainer>
-                <Input placeholder='Buscar...'/>
-                </BuscarInputContainer>
-                <Menu>Live Code</Menu>
-                <Menu>Global</Menu>
-            </Row>
-             <Row>
-                <MenuRight href='#'>Home</MenuRight>
-                <Button title ="Entrar"/>
-                <Button title ="Cadastrar"/>
-             </Row>
-        </Container>
-    </Wrapper>
-  )
-}
+      <Container>
+        <Row>
+          <img src={logo} alt="Logo da dio" />
+          {autenticado ? (
+            <>
+              <BuscarInputContainer>
+                <Input placeholder="Buscar..." />
+              </BuscarInputContainer>
+              <Menu>Live Code</Menu>
+              <Menu>Global</Menu>
+            </>
+          ) : null}
+        </Row>
+        <Row>
+          {autenticado ? (
+            <UserPicture src= "https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png"/>
+          ) : (
 
-export { Header }
+             <>
+            <MenuRight href="#">Home</MenuRight>
+            <Button title="Entrar" />
+            <Button title="Cadastrar" />
+            
+            </>
+          )}
+        </Row>
+      </Container>
+    </Wrapper>
+  );
+};
+
+export { Header };
