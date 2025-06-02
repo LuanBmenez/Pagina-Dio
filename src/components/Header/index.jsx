@@ -6,7 +6,6 @@ import {
   BuscarInputContainer,
   Container,
   Row,
-  Column,
   Input,
   Menu,
   MenuRight,
