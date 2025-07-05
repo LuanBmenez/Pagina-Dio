@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IUserstyle } from "./Type";
 
 export const Container = styled.div `
     display: flex;
@@ -25,7 +26,7 @@ export const NameText = styled.div `
     color: #FFFFFF;
 `
 
-export const Progress = styled.div `
+export const Progress = styled.div<IUserstyle> `
     width: 180px;
     height: 6px;
     background-color: #FFFFFF;

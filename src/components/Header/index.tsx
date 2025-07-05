@@ -1,4 +1,4 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo-dio.png";
 import { Button } from "../Button";
 
@@ -12,8 +12,10 @@ import {
   Wrapper,
   UserPicture,
 } from "./styles";
+import { IHeader } from "./Types";
 
-const Header = ({ autenticado }) => {
+const Header = ({ autenticado }: IHeader) => {
+   const navigate = useNavigate();
   return (
     <Wrapper>
       <Container>
@@ -31,14 +33,12 @@ const Header = ({ autenticado }) => {
         </Row>
         <Row>
           {autenticado ? (
-            <UserPicture src= "https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png"/>
+            <UserPicture src="https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png" />
           ) : (
-
-             <>
-            <MenuRight href="#">Home</MenuRight>
-            <Button title="Entrar" />
-            <Button title="Cadastrar" />
-            
+            <>
+              <MenuRight onClick={() => navigate("/")}>Home</MenuRight>
+              <Button title="Entrar" onClick={() => navigate("/login")} />
+              <Button title="Feed" onClick={() => navigate("/feed")} />
             </>
           )}
         </Row>
