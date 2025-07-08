@@ -1,5 +1,4 @@
 import { MdEmail, MdLock } from "react-icons/md";
-import { data, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -7,8 +6,6 @@ import * as yup from "yup";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
-
-import { api } from "../../services/api";
 
 import {
   Column,
@@ -22,6 +19,7 @@ import {
   Wrapper,
 } from "./styles";
 import { IFormData } from "./Types";
+import { useAuth } from "../../hooks/useAuth";
 
 const schema = yup
   .object({
@@ -37,35 +35,24 @@ const schema = yup
   .required();
 
 const Login = () => {
-  const navigate = useNavigate();
+  const { handleLogin } = useAuth();
 
   const {
     control,
     handleSubmit,
-    formState: { errors}} = useForm<IFormData>({
+    formState: { errors },
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
 
-
-  const OnSubmit = async (formData: IFormData ) => {
-    try {
-      const {data} = await api.get(
-        `users?email=${formData.email}&senha=${formData.password}`
-      );
-      if (data.length === 1) {
-        navigate("/feed");
-      } else {
-        alert("Email ou senha invalido");
-      }
-    } catch {
-      alert("Houve um erro, tente novamente.");
-    }
+  const OnSubmit = async (formData: IFormData) => {
+    handleLogin(formData);
   };
 
   return (
     <>
-      <Header autenticado={undefined} />
+      <Header  />
       <Container>
         <Column>
           <Title>

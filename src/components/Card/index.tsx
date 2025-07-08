@@ -19,7 +19,7 @@ const Card = () => {
       <UserInfo>
         <UserPicture src="https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png"/>
         <div>
-          <h4>Luan Menezes</h4>
+          <h4>Monkey D. Luffy</h4>
           <p>há 8 minutos</p>
         </div>
       </UserInfo>

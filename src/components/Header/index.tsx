@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo-dio.png";
 import { Button } from "../Button";
+import { useAuth } from "../../hooks/useAuth";
 
 import {
   BuscarInputContainer,
@@ -12,16 +13,20 @@ import {
   Wrapper,
   UserPicture,
 } from "./styles";
-import { IHeader } from "./Types";
 
-const Header = ({ autenticado }: IHeader) => {
-   const navigate = useNavigate();
+
+const Header = () => {
+  const { user, handleSingOut } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Container>
         <Row>
-          <img src={logo} alt="Logo da dio" />
-          {autenticado ? (
+          <Link to="/">
+            <img src={logo} alt="Logo da dio" />
+          </Link>
+          {user.id ? (
             <>
               <BuscarInputContainer>
                 <Input placeholder="Buscar..." />
@@ -32,8 +37,11 @@ const Header = ({ autenticado }: IHeader) => {
           ) : null}
         </Row>
         <Row>
-          {autenticado ? (
-            <UserPicture src="https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png" />
+          {user.id ? (
+            <>
+              <UserPicture src="https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png" />
+              <button onClick={handleSingOut}>Sair</button>
+            </>
           ) : (
             <>
               <MenuRight onClick={() => navigate("/")}>Home</MenuRight>
